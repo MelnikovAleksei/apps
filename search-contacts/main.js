@@ -13,9 +13,10 @@ function search() {
         const splitContact = contacts[index].split(':');
         if (splitContact[0].toLowerCase() === searchValue) {
             paragraph.textContent = splitContact[0] + "\'s number is " + splitContact[1];
+            displayMessege('Contact is found!', 'Chat');
             break;
         } else {
-            paragraph.textContent = 'Contact not found.';
+            displayMessege('Contact not found!', 'warning');
         }
         
     }
@@ -29,7 +30,38 @@ function addContact() {
     enterContact.value = '';
     enterContactPhone = '';
     inputSearch.focus();
-    paragraph.textContent = 'New contact added!';
+    displayMessege('New contact added', 'chat');
+}
+
+function displayMessege(msgText, msgType) {
+    const html = document.querySelector('html');
+    const panel = document.createElement('div');
+    panel.setAttribute('class', 'msgBox');
+    html.appendChild(panel);
+
+    const msg = document.createElement('p');
+    msg.textContent = msgText;
+    panel.appendChild(msg);
+
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = 'X';
+    panel.appendChild(closeBtn);
+
+    if (msgType === 'warning') {
+      msg.style.backgroundImage = 'url(icons/warning.png)';
+      panel.style.backgroundColor = 'red';
+    } else if(msgType === 'chat') {
+      msg.style.backgroundImage = 'url(icons/chat.png)';
+      panel.style.backgroundColor = 'blue';
+    } else {
+      msg.style.paddingLeft = '20px';
+    }
+
+    closeBtn.onclick = function() {
+      paragraph.textContent = "";
+      panel.parentNode.removeChild(panel);
+      
+    }
 }
 searchButton.addEventListener('click', search);
 addButton.addEventListener('click', addContact);
