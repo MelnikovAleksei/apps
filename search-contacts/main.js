@@ -15,7 +15,7 @@ function search() {
             paragraph.textContent = splitContact[0] + "\'s number is " + splitContact[1];
             displayMessege('Contact is found!', 'Chat');
             break;
-        } else {
+        } else if (index === contacts.length - 1){
             displayMessege('Contact not found!', 'warning');
         }
         
