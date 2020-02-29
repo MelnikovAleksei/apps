@@ -3,13 +3,16 @@ let startBtn = document.querySelector('.startBtn');
 let stopBtn = document.querySelector('.stopBtn');
 let resetBtn = document.querySelector('.resetBtn');
 let saveBtn = document.querySelector('.saveBtn');
-let deleteSavedBtn = document.querySelector('.deleteSavedBtn');
+let deleteBtn = document.querySelector('.deleteBtn');
+const savedCounts = document.querySelector('.savedCounts');
+const para = document.createElement('p');
 let saveCount = '';
 let secondCount = 0;
 
 let stopWatch;
 
 startBtn.focus();
+deleteBtn.disabled = true;
 
 function displayCount() {
     let hours = Math.floor(secondCount/3600);
@@ -44,20 +47,23 @@ resetBtn.addEventListener('click', () => {
 })
 
 saveBtn.addEventListener('click', () => {
-    const div = document.querySelector('div');
-    const para = document.createElement('p');
+
     //const deleteBtn = document.createElement('button');
     
-    div.appendChild(para);
+    savedCounts.appendChild(para);
     //div.appendChild(deleteBtn);
     para.setAttribute('class', 'savedCount')
     //deleteBtn.setAttribute('class', 'deleteBtn')
 
     para.textContent = saveCount;
+    saveBtn.textContent = 'Overwrite';
     //deleteBtn.textContent = 'Delete'
+    deleteBtn.disabled = false;
 })
 
-/*deleteBtn.addEventListener('click', () => {
-
-})*/
+deleteBtn.addEventListener('click', () => {
+    savedCounts.removeChild(para)
+    deleteBtn.disabled = true;
+    saveBtn.textContent = 'Save'
+})
 displayCount()
