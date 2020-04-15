@@ -80,11 +80,7 @@
                 const card = cards[i];
                 card.removeEventListener('click', flipCard);
             }
-            setTimeout(checkForMatch, 500);
-        }
-        for (let i = 0; i < cards.length; i++) {
-            const card = cards[i];
-            card.addEventListener('click', flipCard);
+            setTimeout(checkForMatch, 500)
         }
     }
 
@@ -108,6 +104,10 @@
         if (cardsWon.length === cardArray.length / 2) {
             resultDisplay.textContent = 'Congratulations! You found them all';
             grid.style.display = 'none'
+        }
+        for (let i = 0; i < cards.length; i++) {
+            const card = cards[i];
+            card.addEventListener('click', flipCard);
         }
     }
 
