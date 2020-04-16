@@ -17,7 +17,7 @@ function randomSquare() {
 }
 
 square.forEach(square => {
-    square.addEventListener('mouseup', () => {
+    square.addEventListener('click', () => {
         if (square.id === hitPosition) {
             result++;
             score.textContent = result;
@@ -47,4 +47,3 @@ function countDown () {
 }
 
 let timerId = setInterval(countDown, 1000)
-
