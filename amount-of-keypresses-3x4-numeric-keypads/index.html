@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-tap Keypad Text Entry on an Old Mobile Phone</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+        }
+        input:invalid {
+            border: 2px solid red;
+        }
+        input:valid{
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <h3>Multi-tap Keypad Text Entry on an Old Mobile Phone</h3>
+    <form>
+        <label for="phrase">Enter phrase (characters in the range a-z and # and *)</label>
+        <input type="text" pattern="[a-zA-Z0-9*#\s]+" placeholder="characters in the range a-z and # *">
+    </form>
+    <p id="count"></p>
+    <img src="1.jpg" alt="old phone keypad">
+    <p>Go to the codewars website with this kata <a target="_blank" href="https://www.codewars.com/kata/54a2e93b22d236498400134b/javascript">Codewars kata</a></p>
+    <script>
+    let input= document.querySelector('input');
+    let phrase = '';
+    let count = document.querySelector('#count');
+
+    function presses(phrase) {
+	    const charsArr = [[' ', '0'], ['1'], ['a', 'b', 'c', '2'], ['d', 'e', 'f', '3'], ['g', 'h', 'i', '4'], ['j', 'k', 'l', '5'], ['m', 'n', 'o', '6'], ['p', 'q', 'r', 's', '7'], ['t', 'u', 'v', '8'], ['w', 'x', 'y', 'z', '9'], ['*'], ['#']];
+	    let result = 0;
+	    for (let i = 0; i < phrase.length; i++) {
+		    const char = phrase[i].toLowerCase();
+		    charsArr.forEach((element) => {
+			    let num = element.indexOf(char) + 1;
+			    if (num > 0) {
+				    result += num;
+		    	}
+		    })
+	    }
+	    return result;
+    }
+
+    input.addEventListener('input', () => {
+        phrase = input.value;
+        count.textContent = presses(phrase);
+    })
+    
+    </script>
+</body>
+</html>
