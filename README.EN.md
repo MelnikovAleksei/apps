@@ -1,6 +1,6 @@
 # Educational practical tasks from ["MDN Learn web development"](https://developer.mozilla.org/en-US/docs/Learn) and [freeCodeCamp YouTube Channel](https://www.youtube.com/c/Freecodecamp/)
 
-*Read this in other languages:* [RU](https://github.com/MelnikovAleksei/api-study-tasks/blob/master/README.md) 
+*Read this in other languages:* [RU](https://github.com/MelnikovAleksei/apps/blob/master/README.md) 
 
 ## Apps: 
 
