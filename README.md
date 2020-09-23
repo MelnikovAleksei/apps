@@ -1,4 +1,6 @@
-# Educational practical tasks from ["MDN Learn web development"](https://developer.mozilla.org/en-US/docs/Learn) and [freeCodeCamp YouTube Channel](https://www.youtube.com/c/Freecodecamp/)
+# Учебные практические задания из программы ["Learn web development" MDN web docs](https://developer.mozilla.org/en-US/docs/Learn) и [YouTube канала сообщества freeCodeCamp](https://www.youtube.com/c/Freecodecamp/)
+
+*Read this in other languages:* [EN](https://github.com/MelnikovAleksei/apps/blob/master/README.EN.md) 
 
 ## Apps: 
 
